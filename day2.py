@@ -4,6 +4,7 @@ total_cubes = {"red": 12, "green": 13, "blue": 14}
 with open("inputs/day2") as f:
     inp = f.readlines()
 
+part = 1
 answer = 0
 for line in inp:
     line = line.split(":")
