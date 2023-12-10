@@ -14,6 +14,5 @@ def fast_win(game):
     return solutions(-1, game[0], -game[1])
 
 start_time = time.time()
-#print(math.prod(map(fast_win, zip(times, distances))))
 print(fast_win((times, distances)))
 print("--- %s seconds ---" % (time.time() - start_time))
