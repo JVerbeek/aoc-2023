@@ -48,7 +48,7 @@ for x, line in enumerate(lines):
             while y > 0:
                 cross += (x, y) in loop and lines[x][y] in "JLS|"
                 y -= 1
-            points += cross % 2 == 1
+            points += cross % 2
 print(points)
 
 # alternatively, dirty solution
