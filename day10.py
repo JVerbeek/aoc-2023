@@ -39,17 +39,17 @@ while not loop[0] == loop[-1]:   # python eats its tail
     
 print(max(loop.index((sx, sy)), len(loop) - 1 - loop.index((sx, sy)) ))
 
-# points = 0
-# enclosed = []
-# for x, line in enumerate(lines):
-#     for y, char in enumerate(line):
-#         if (x, y) not in loop:
-#             cross = 0
-#             while y > 0:
-#                 cross += (x, y) in loop and lines[x][y] in "JLS|"
-#                 y -= 1
-#             points += cross % 2 == 1
-# print(points)
+points = 0
+enclosed = []
+for x, line in enumerate(lines):
+    for y, char in enumerate(line):
+        if (x, y) not in loop:
+            cross = 0
+            while y > 0:
+                cross += (x, y) in loop and lines[x][y] in "JLS|"
+                y -= 1
+            points += cross % 2 == 1
+print(points)
 
 # alternatively, dirty solution
 points = 0
@@ -59,15 +59,3 @@ for x, line in enumerate(lines):
         if (x, y) not in loop and ploop.contains_point((x, y)):
             points += 1
 print(points)
-
-looparr = np.ones((len(lines), len(lines[0])))
-fill = np.zeros((len(lines), len(lines[0])))
-for x in range(len(looparr)):
-    for y in range(len(looparr)):
-        if (x, y) in loop:
-            looparr[x, y] = 0
-            if ploop.contains_point((x, y)):
-                fill[x, y] = 1
-plt.imshow(looparr, zorder=1, cmap="binary")
-plt.imshow(fill, zorder=2, cmap="Reds", alpha=0.5)
-plt.show()
